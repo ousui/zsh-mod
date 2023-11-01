@@ -5,11 +5,14 @@ _ppath=$_fpath/plugins
 _lpath=$_fpath/lib
 
 if [ -d "${_lpath}" ]; then
-	libs=`find ${_lpath} -name '*.zsh'`
-	for lib in ${libs}; do
+
+	for lib in $(find ${_lpath} -type f -name '*.zsh'); do
+	    echo loading lib: ${lib}
 		source ${lib}
 	done
+
 fi
+
 
 if [ -d "${_ppath}" ]; then
 #	echo ${_ppath}
